@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Blood Sugar Assessment Results</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:#B8312F;--red-bg:#FFF5F4;--cream:#FDF8F0;--cream-dk:#F0E8D8;
+    --green:#2D8B4E;--green-lt:#EDF7F0;--green-dk:#1E6B38;
+    --amber:#C17A1A;--dark:#1A1A1A;--gray:#555;--gray-lt:#999;--gray-pale:#E8E8E8;
+    --white:#FFF;--gold:#D4A017;
+    --fd:'DM Serif Display',Georgia,serif;--fb:'DM Sans',-apple-system,sans-serif;
+    --mw:640px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;font-size:16px}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,49,47,.25)}50%{box-shadow:0 0 0 10px rgba(184,49,47,0)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes checkPop{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .rv.v{opacity:1;transform:translateY(0)}
+
+  /* LOADER */
+  .lo{position:fixed;inset:0;z-index:9999;background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
+  .lo.done{opacity:0;pointer-events:none}
+  .lo-spin{width:44px;height:44px;border-radius:50%;border:3px solid var(--gray-pale);border-top-color:var(--red);animation:spin .8s linear infinite;margin-bottom:18px}
+  .lo-txt{font-size:15px;color:var(--gray);font-weight:500}
+  .lo-steps{margin-top:20px;text-align:left}
+  .lo-s{font-size:13px;color:var(--gray-lt);padding:5px 0;display:flex;align-items:center;gap:9px;opacity:0}
+  .lo-s .ck{width:17px;height:17px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;transform:scale(0)}
+  .lo-s .ck svg{width:10px;height:10px}
+  .lo-s.on{opacity:1;color:var(--dark);font-weight:500}
+  .lo-s.on .ck{animation:checkPop .35s ease forwards}
+
+  .sb{background:var(--cream);padding:10px 20px;text-align:center;border-bottom:1px solid var(--cream-dk);font-size:13px;color:var(--gray)}
+  .sb strong{color:var(--dark);font-weight:700}
+  .avs{display:inline-flex;vertical-align:middle;margin-right:8px}
+  .av{width:24px;height:24px;border-radius:50%;border:2px solid var(--white);margin-left:-6px}
+  .av:first-child{margin-left:0}
+  .ctr{max-width:var(--mw);margin:0 auto;padding:0 20px}
+
+  /* HEADER */
+  .rh{padding:36px 0 28px;text-align:center}
+  .badge{display:inline-flex;align-items:center;gap:7px;background:var(--red-bg);border:1.5px solid var(--red);border-radius:100px;padding:7px 18px;margin-bottom:18px;animation:pulse 2.5s ease infinite}
+  .badge .dot{width:7px;height:7px;background:var(--red);border-radius:50%}
+  .badge span{font-size:11px;font-weight:700;color:var(--red);letter-spacing:1.2px;text-transform:uppercase}
+  .rh h1{font-family:var(--fd);font-size:30px;line-height:1.2;color:var(--dark);margin-bottom:10px;font-weight:400}
+  .rh h1 em{color:var(--red);font-style:italic}
+  .rh .sub{font-size:15px;color:var(--gray);max-width:440px;margin:0 auto}
+
+  /* SCORE */
+  .sc{background:var(--cream);border-radius:14px;padding:20px 22px;margin-bottom:32px}
+  .sc-l{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray-lt);font-weight:600;margin-bottom:8px}
+  .sc-t{background:var(--cream-dk);height:8px;border-radius:100px;position:relative;margin-bottom:8px}
+  .sc-f{position:absolute;top:0;left:0;height:100%;border-radius:100px;background:linear-gradient(90deg,var(--amber),#D94441,var(--red));width:0;transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+  .sc-f.go{width:82%}
+  .sc-d{position:absolute;top:50%;right:-5px;transform:translateY(-50%);width:16px;height:16px;background:var(--red);border:2.5px solid var(--white);border-radius:50%;box-shadow:0 2px 6px rgba(184,49,47,.3)}
+  .sc-z{display:flex;justify-content:space-between;font-size:10px;color:var(--gray-lt);font-weight:500}
+  .sc-z .act{color:var(--red);font-weight:700}
+
+  .sep{height:1px;background:var(--gray-pale);margin:32px 0}
+
+  /* ASSESSMENT SUMMARY */
+  .summary-box{background:var(--cream);border-radius:14px;padding:24px;margin-bottom:24px;border-left:4px solid var(--amber)}
+  .summary-box .sum-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;color:var(--amber);margin-bottom:12px}
+  .summary-box h3{font-family:var(--fd);font-size:21px;color:var(--dark);font-weight:400;line-height:1.3;margin-bottom:14px}
+  .sum-items{list-style:none;padding:0}
+  .sum-items li{font-size:15px;color:var(--gray);line-height:1.5;padding:6px 0;padding-left:20px;position:relative}
+  .sum-items li::before{content:"";position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:50%;background:var(--amber);opacity:.5}
+  .sum-highlight{font-size:15px;color:var(--dark);font-weight:600;margin-top:14px;line-height:1.5}
+
+  /* CHART */
+  .ch{background:var(--cream);border-radius:14px;overflow:hidden;margin-bottom:24px;border:1px solid var(--cream-dk)}
+  .ch svg{width:100%;display:block}
+  .ch-cap{padding:10px 16px;font-size:12px;color:var(--gray-lt);text-align:center;border-top:1px solid var(--cream-dk);font-style:italic}
+
+  /* TRAJECTORY */
+  .trajectory{background:var(--red-bg);border-radius:12px;padding:22px 24px;margin:24px 0;border:1px solid rgba(184,49,47,.1)}
+  .trajectory .tr-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;color:var(--red);margin-bottom:8px}
+  .trajectory h3{font-family:var(--fd);font-size:19px;color:var(--dark);font-weight:400;line-height:1.3;margin-bottom:10px}
+  .trajectory p{font-size:15px;color:var(--gray);line-height:1.6}
+  .trajectory strong{color:var(--dark)}
+
+  /* TESTIMONIAL */
+  .ts{display:flex;gap:14px;align-items:flex-start;padding:16px 0;margin:6px 0}
+  .ts-bar{width:3px;min-height:100%;background:var(--gold);border-radius:2px;flex-shrink:0}
+  .ts-bd{flex:1}
+  .ts-st{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:4px}
+  .ts-q{font-size:14px;color:var(--dark);font-style:italic;line-height:1.55;margin-bottom:4px}
+  .ts-n{font-size:12px;font-weight:700;color:var(--gray-lt)}
+
+  /* BOOK SECTION */
+  .bk{background:linear-gradient(180deg,var(--green-lt) 0%,var(--white) 100%);border-radius:16px;padding:28px 22px;margin:28px 0;border:1.5px solid rgba(45,139,78,.15);text-align:center}
+  .bk .bk-lbl{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--green);margin-bottom:14px}
+  .bk h2{font-family:var(--fd);font-size:24px;color:var(--dark);font-weight:400;line-height:1.3;margin-bottom:18px}
+  .bk h2 em{color:var(--green-dk);font-style:italic}
+  .pills{display:flex;flex-direction:column;gap:10px;margin:20px 0;text-align:left}
+  .pill{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:11px;padding:14px 16px;border:1px solid rgba(45,139,78,.1)}
+  .pill-n{width:30px;height:30px;min-width:30px;border-radius:50%;background:var(--green);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:14px;margin-top:1px}
+  .pill-t h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px}
+  .pill-t p{font-size:13px;color:var(--gray);line-height:1.45}
+  .bk-extra{font-size:13px;color:var(--gray);line-height:1.5;margin:16px 0 0;font-style:italic}
+  .aft{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:20px 0}
+  .af{background:var(--green-lt);border-radius:9px;padding:12px 8px;text-align:center}
+  .af-i{font-size:20px;display:block;margin-bottom:3px}
+  .af-l{font-size:11px;font-weight:600;color:var(--green-dk);line-height:1.3}
+  .cta{text-align:center;padding:20px 0}
+  .btn{display:inline-block;background:var(--red);color:var(--white);font-family:var(--fb);font-size:17px;font-weight:700;padding:16px 44px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(184,49,47,.22);transition:all .2s}
+  .btn:hover{background:#9B2826;transform:translateY(-2px);box-shadow:0 6px 20px rgba(184,49,47,.3)}
+  .cta-s{margin-top:10px;font-size:13px;color:var(--gray-lt)}
+  .cta-s .anc{display:block;margin-top:3px;font-style:italic;color:var(--gray)}
+
+  /* MIKE */
+  .mk-r{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+  .mk-av{width:50px;height:50px;min-width:50px;border-radius:50%;background:var(--cream-dk);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:18px;color:var(--gray)}
+  .mk-m h4{font-size:16px;font-family:var(--fd);font-weight:400;color:var(--dark)}
+  .mk-m .tg{font-size:11px;font-weight:600;color:var(--red)}
+  .mk-b{font-size:14px;color:var(--gray);line-height:1.55;margin-bottom:6px}
+  .mk-b strong{color:var(--dark)}
+  .sts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:16px 0}
+  .st{background:var(--cream);border-radius:9px;padding:12px 8px;text-align:center}
+  .st-n{font-family:var(--fd);font-size:20px;color:var(--dark);line-height:1;margin-bottom:2px}
+  .st-l{font-size:10px;color:var(--gray-lt);font-weight:500}
+
+  .fcta{background:var(--red-bg);border:1.5px solid rgba(184,49,47,.12);border-radius:14px;padding:24px 22px;text-align:center;margin:28px 0 14px}
+  .fcta .fl{font-family:var(--fd);font-size:19px;color:var(--dark);line-height:1.35;margin-bottom:18px;font-weight:400}
+  .fcta .fl em{color:var(--red);font-style:italic}
+  .soft{text-align:center;padding:14px 0 44px;font-size:13px;color:var(--gray-lt);line-height:1.6;max-width:460px;margin:0 auto;font-style:italic}
+  .ft{background:var(--cream);border-top:1px solid var(--cream-dk);padding:16px 0;text-align:center;font-size:11px;color:var(--gray-lt)}
+  @media(max-width:600px){
+    .rh h1{font-size:26px}.aft{grid-template-columns:1fr 1fr}.btn{width:100%;padding:16px 20px}
+    .mk-r{flex-direction:column;align-items:center;text-align:center}.bk h2{font-size:21px}
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="lo" id="lo">
+  <div class="lo-spin"></div>
+  <div class="lo-txt">Analyzing your responses...</div>
+  <div class="lo-steps">
+    <div class="lo-s" id="s1"><div class="ck"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>Reviewing symptom patterns</div>
+    <div class="lo-s" id="s2"><div class="ck"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>Mapping blood sugar indicators</div>
+    <div class="lo-s" id="s3"><div class="ck"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>Generating your personalized results</div>
+  </div>
+</div>
+
+<!-- SOCIAL BAR -->
+<div class="sb">
+  <span class="avs">
+    <svg class="av" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#8B6B4A"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="DM Sans">J</text></svg>
+    <svg class="av" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#5C7A54"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="DM Sans">M</text></svg>
+    <svg class="av" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#A0522D"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="DM Sans">S</text></svg>
+    <svg class="av" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#6B7B8D"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="DM Sans">R</text></svg>
+  </span>
+  <strong>32,876</strong> people took this assessment
+</div>
+
+<div class="ctr">
+
+  <!-- ===== STAGE 1: WHERE YOU ARE ===== -->
+
+  <section class="rh">
+    <div class="badge"><span class="dot"></span><span>Your Result</span></div>
+    <h1>Diabetic Patterns <em>Present</em></h1>
+    <p class="sub">Based on your symptoms, energy patterns, eating habits, and medical history.</p>
+  </section>
+
+  <div class="sc rv">
+    <div class="sc-l">Assessment Severity</div>
+    <div class="sc-t"><div class="sc-f" id="sBar"><div class="sc-d"></div></div></div>
+    <div class="sc-z"><span>Early Warning</span><span>Pre-Diabetic</span><span class="act">Diabetic Patterns ●</span></div>
+  </div>
+
+  <!-- ASSESSMENT SUMMARY — compact, scannable -->
+  <div class="summary-box rv">
+    <div class="sum-label">Your Assessment Summary</div>
+    <h3>Your symptoms aren't separate problems. They're connected.</h3>
+    <ul class="sum-items">
+      <li>Fatigue, cravings, brain fog, and energy crashes linked to blood sugar instability</li>
+      <li>Spike-crash cycle repeating 4–6 times daily — driving cravings and midsection weight</li>
+      <li>Pattern consistent with insulin resistance building over years</li>
+      <li>Standard "watch and manage" approach unlikely to address root cause</li>
+    </ul>
+    <p class="sum-highlight">This isn't five problems. It's one problem showing up in five places — which means you don't need five solutions. You need one.</p>
+  </div>
+
+  <!-- BLOOD SUGAR CHART -->
+  <div class="ch rv">
+    <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#D94441"/><stop offset="100%" stop-color="#B8312F"/></linearGradient>
+        <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D94441" stop-opacity=".1"/><stop offset="100%" stop-color="#D94441" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect width="640" height="220" fill="#FDF8F0"/>
+      <rect x="30" y="110" width="580" height="32" fill="#2D8B4E" opacity=".07" rx="3"/>
+      <text x="618" y="124" fill="#2D8B4E" font-size="8" font-family="DM Sans" font-weight="600" text-anchor="end" opacity=".5">healthy</text>
+      <text x="618" y="135" fill="#2D8B4E" font-size="8" font-family="DM Sans" font-weight="600" text-anchor="end" opacity=".5">range</text>
+      <path d="M30,130 C65,127 85,65 135,38 C180,14 190,44 210,104 C228,168 238,185 255,185 C272,185 282,158 310,104 C338,50 355,28 385,24 C415,20 425,58 442,104 C460,150 468,163 485,163 C502,163 510,150 530,127 C550,104 570,120 600,127" fill="none" stroke="url(#cg)" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M30,130 C65,127 85,65 135,38 C180,14 190,44 210,104 C228,168 238,185 255,185 C272,185 282,158 310,104 C338,50 355,28 385,24 C415,20 425,58 442,104 C460,150 468,163 485,163 C502,163 510,150 530,127 C550,104 570,120 600,127 L600,205 L30,205 Z" fill="url(#fg)"/>
+      <rect x="112" y="22" width="46" height="18" rx="3" fill="#B8312F"/><text x="135" y="35" fill="white" font-size="9" font-family="DM Sans" font-weight="700" text-anchor="middle">SPIKE</text>
+      <rect x="362" y="8" width="46" height="18" rx="3" fill="#B8312F"/><text x="385" y="21" fill="white" font-size="9" font-family="DM Sans" font-weight="700" text-anchor="middle">SPIKE</text>
+      <rect x="232" y="175" width="48" height="18" rx="3" fill="#666"/><text x="256" y="188" fill="white" font-size="9" font-family="DM Sans" font-weight="700" text-anchor="middle">CRASH</text>
+      <rect x="450" y="148" width="76" height="18" rx="3" fill="#1A1A1A"/><text x="488" y="161" fill="white" font-size="8" font-family="DM Sans" font-weight="700" text-anchor="middle">YOU ARE HERE</text>
+      <circle cx="488" cy="175" r="5" fill="#D94441" opacity=".7"/><circle cx="488" cy="175" r="8" fill="#D94441" opacity=".15"/>
+      <text x="30" y="14" fill="#1A1A1A" font-size="9.5" font-family="DM Sans" font-weight="600" letter-spacing=".4">YOUR DAILY BLOOD SUGAR</text>
+      <text x="85" y="212" fill="#999" font-size="10" font-family="DM Sans" text-anchor="middle">Morning</text>
+      <text x="235" y="212" fill="#999" font-size="10" font-family="DM Sans" text-anchor="middle">Lunch</text>
+      <text x="400" y="212" fill="#999" font-size="10" font-family="DM Sans" text-anchor="middle">Afternoon</text>
+      <text x="560" y="212" fill="#999" font-size="10" font-family="DM Sans" text-anchor="middle">Evening</text>
+    </svg>
+    <div class="ch-cap">This spike-crash pattern can repeat 4–6 times daily. Each cycle makes the next craving harder to resist.</div>
+  </div>
+
+  <!-- TESTIMONIAL 1 -->
+  <div class="ts rv">
+    <div class="ts-bar"></div>
+    <div class="ts-bd">
+      <div class="ts-st">★★★★★</div>
+      <p class="ts-q">"Mike lays it all out — what's going on in your body, why it's happening, what you can actually do. My last A1C was the best I've had in years."</p>
+      <span class="ts-n">— Linda M., 52</span>
+    </div>
+  </div>
+
+  <!-- ===== STAGE 2: WHERE YOU'RE HEADING ===== -->
+
+  <div class="trajectory rv">
+    <div class="tr-label">Where This Goes</div>
+    <h3>This pattern doesn't stay flat. It escalates.</h3>
+    <p>Insulin resistance builds over time, not weaker. The medications increase. The symptoms get louder. Under the standard "manage it" approach, this only moves in one direction. That's why it's called progressive.</p>
+    <p style="margin-top:10px"><strong>But it's not progressive because of your body.</strong> It's progressive because the approach never removes what's causing it. Over 57,000 people changed the approach — and changed the direction.</p>
+  </div>
+
+  <!-- ===== STAGE 3: YOUR SOLUTION ===== -->
+
+  <div class="bk rv">
+    <div class="bk-lbl">Your Reversal Roadmap</div>
+    <h2>Everything your assessment revealed — and the step-by-step process to <em>reverse it</em> — is in one book.</h2>
+
+    <div class="pills">
+      <div class="pill">
+        <div class="pill-n">1</div>
+        <div class="pill-t">
+          <h4>The Sugar Purge</h4>
+          <p>Identify and remove every source driving insulin resistance — including the 50+ hidden names on labels.</p>
+        </div>
+      </div>
+      <div class="pill">
+        <div class="pill-n">2</div>
+        <div class="pill-t">
+          <h4>Build Your Food Foundation</h4>
+          <p>Real foods that stabilize blood sugar. Meal templates, shopping guides, restaurant survival.</p>
+        </div>
+      </div>
+      <div class="pill">
+        <div class="pill-n">3</div>
+        <div class="pill-t">
+          <h4>Fine-Tune Your Metabolism</h4>
+          <p>Use a CGM to see what's happening in real time. Safely reduce medications as numbers improve.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="bk-extra">Plus: cravings, family pressure, holidays, travel, progress stalls, and working with your healthcare team.</p>
+
+    <div class="aft">
+      <div class="af"><span class="af-i">⚡</span><span class="af-l">Steady energy</span></div>
+      <div class="af"><span class="af-i">🧠</span><span class="af-l">Brain fog gone</span></div>
+      <div class="af"><span class="af-i">🔓</span><span class="af-l">Cravings break</span></div>
+      <div class="af"><span class="af-i">⚖️</span><span class="af-l">Weight shifts</span></div>
+      <div class="af"><span class="af-i">😴</span><span class="af-l">Deeper sleep</span></div>
+      <div class="af"><span class="af-i">📉</span><span class="af-l">Meds reduced</span></div>
+    </div>
+
+    <div class="cta">
+      <a href="#" class="btn">GET THE BOOK — $24.97</a>
+      <p class="cta-s">Instant digital access. Start reading in 2 minutes.<span class="anc">Less than a single doctor's copay.</span></p>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL 2 -->
+  <div class="ts rv">
+    <div class="ts-bar"></div>
+    <div class="ts-bd">
+      <div class="ts-st">★★★★★</div>
+      <p class="ts-q">"I bought this for my husband after his diagnosis. He's down 28 pounds and his numbers are the best they've been since his 30s. Seven months in."</p>
+      <span class="ts-n">— Karen T., 49</span>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- MIKE -->
+  <section class="rv">
+    <div class="mk-r">
+      <div class="mk-av">MC</div>
+      <div class="mk-m"><h4>Mike Collins</h4><span class="tg">The SugarFreeMan · Sugar-Free 37 Years</span></div>
+    </div>
+    <p class="mk-b">Not a doctor. In 1988, his fasting glucose hit 247. His A1C was over 11%. He eliminated sugar — within 3 months, A1C dropped to 5.8%. Today, 37 years later: A1C 4.9%, zero medications. <strong>He's helped 57,000+ people do the same.</strong></p>
+    <div class="sts">
+      <div class="st"><div class="st-n">37</div><div class="st-l">years sugar-free</div></div>
+      <div class="st"><div class="st-n">57K+</div><div class="st-l">people helped</div></div>
+      <div class="st"><div class="st-n">4.9%</div><div class="st-l">his A1C today</div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL 3 -->
+  <div class="ts rv">
+    <div class="ts-bar"></div>
+    <div class="ts-bd">
+      <div class="ts-st">★★★★★</div>
+      <p class="ts-q">"I learned more from this book than from most appointments I've sat through. My wife's reading it now too."</p>
+      <span class="ts-n">— David R., 66</span>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="fcta rv">
+    <p class="fl">Your assessment showed <em>diabetic patterns.</em><br>The standard approach manages them.<br>This book addresses the cause.</p>
+    <a href="#" class="btn">START READING NOW — $24.97</a>
+    <p class="cta-s" style="margin-top:12px">Secure checkout · Instant access · Any device</p>
+  </div>
+
+  <p class="soft rv">57,000 people reversed their insulin resistance by understanding what was causing it and removing it. This book is what made that possible.</p>
+
+</div>
+
+<div class="ft">SugarDetox.com · Educational purposes only. Always consult your healthcare provider.</div>
+
+<script>
+['s1','s2','s3'].forEach((id,i)=>{setTimeout(()=>{document.getElementById(id).classList.add('on')},600+i*700)});
+setTimeout(()=>{document.getElementById('lo').classList.add('done')},3200);
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+setTimeout(()=>{const b=document.getElementById('sBar');if(b)b.classList.add('go')},3600);
+</script>
+</body>
+</html>
