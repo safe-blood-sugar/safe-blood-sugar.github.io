@@ -156,6 +156,20 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 .ch svg.animate .youhere-ring{
   animation:youHereRingPulse 1.6s ease-in-out infinite;
 }
+  /* Death stat card */
+.dstat{background:#1A1A1A;border-radius:14px;padding:34px 28px;margin:28px 0;text-align:center}
+.dstat-title{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#888;font-weight:700;margin-bottom:18px;font-family:'Poppins',sans-serif}
+.dstat-num{font-family:'DM Serif Display',serif;font-size:56px;color:#E05C5C;line-height:1;margin-bottom:6px}
+.dstat-label{font-family:'Poppins',sans-serif;font-size:14px;color:#aaa;margin-bottom:8px;line-height:1.5}
+.dstat-pulse{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:22px}
+.dstat-divider{width:40px;height:1px;background:#333;margin:0 auto 22px}
+.dstat-row{display:flex;gap:20px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+.dstat-stat{text-align:center}
+.dstat-stat-num{font-family:'DM Serif Display',serif;font-size:30px;color:#E8A020;line-height:1.1}
+.dstat-stat-label{font-family:'Poppins',sans-serif;font-size:12px;color:#888;margin-top:2px}
+.dstat-divider2{width:40px;height:1px;background:#333;margin:0 auto 20px}
+.dstat-you{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:#fff;line-height:1.5}
+.dstat-you em{color:#E8A020;font-style:normal}
 
 .ts{display:flex;gap:16px;align-items:flex-start;padding:20px 0;margin:10px 0}
 .ts-bar{width:3px;min-height:100%;background:var(--gold);border-radius:2px;flex-shrink:0}
@@ -322,6 +336,31 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
       <p class="ts-q">&#8220;Mike lays it all out &#8212; what&#8217;s going on in your body, why it&#8217;s happening, what you can actually do. My last A1C was the best I&#8217;ve had in years.&#8221;</p>
       <span class="ts-n">&#8212; Linda M., 52</span>
     </div>
+  </div>
+
+  <!-- DEATH STAT CARD -->
+  <div class="dstat rv">
+    <div class="dstat-title">&#9888; The Numbers Nobody Tells You</div>
+    <div class="dstat-num">399,342</div>
+    <div class="dstat-label">Americans died with diabetes as a contributing cause<br>in a single year — based on CDC death certificate data</div>
+    <div class="dstat-pulse">That&#8217;s over 1,000 people. Every single day.</div>
+    <div class="dstat-divider"></div>
+    <div class="dstat-row">
+      <div class="dstat-stat">
+        <div class="dstat-stat-num">115M</div>
+        <div class="dstat-stat-label">Americans have prediabetes</div>
+      </div>
+      <div class="dstat-stat">
+        <div class="dstat-stat-num">8 in 10</div>
+        <div class="dstat-stat-label">don&#8217;t know it&#8217;s progressing</div>
+      </div>
+      <div class="dstat-stat">
+        <div class="dstat-stat-num">1.5M</div>
+        <div class="dstat-stat-label">new diagnoses every year</div>
+      </div>
+    </div>
+    <div class="dstat-divider2"></div>
+    <div class="dstat-you">You just found out yours is progressing.<br><em>That makes you one of the few who can actually do something about it.</em></div>
   </div>
   
   <!-- WHERE THIS GOES — new copy -->
