@@ -126,18 +126,41 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 .ch svg.animate .youhere-dot{animation:youHereDotPulse 1.2s ease-in-out infinite;}
 .ch svg.animate .youhere-ring{animation:youHereRingPulse 1.6s ease-in-out infinite;}
 
-/* Timeline — unique to this page */
-.tl{margin:30px 0;padding:0}
-.tl-item{display:flex;gap:20px;align-items:flex-start;padding:18px 0;position:relative}
-.tl-item:not(:last-child)::after{content:'';position:absolute;left:18px;top:44px;bottom:0;width:2px;background:var(--gray-pale)}
-.tl-dot{width:38px;height:38px;min-width:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px}
-.tl-dot.now{background:var(--amber-bg);border:2px solid var(--amber);color:var(--amber)}
-.tl-dot.y1{background:#FFF3E0;border:2px solid #E6870A;color:#E6870A}
-.tl-dot.y3{background:#FEE8D5;border:2px solid #D95F1A;color:#D95F1A}
-.tl-dot.y5{background:var(--red-bg);border:2px solid var(--red);color:var(--red)}
-.tl-txt strong{font-size:15px;color:var(--dark);display:block;margin-bottom:4px}
-.tl-txt p{font-size:14px;color:var(--gray);line-height:1.6}
+/* Timeline cards — unique to this page */
+.tl-card{display:flex;flex-direction:column;gap:14px;margin:20px 0 8px}
+.tl-c{background:#fff;border-radius:12px;padding:22px 24px;border-left:5px solid #ddd;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.tl-c.now{border-left-color:#2D8B4E}
+.tl-c.m6{border-left-color:#E8A020}
+.tl-c.y1{border-left-color:#C17A1A}
+.tl-c.y2{border-left-color:#C0392B;background:#FFF6F6}
+.tl-c-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.tl-c-badge{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.tl-c.now .tl-c-badge{background:#E8F5EC;color:#2D8B4E}
+.tl-c.m6 .tl-c-badge{background:#FFF3E0;color:#C17A1A}
+.tl-c.y1 .tl-c-badge{background:#FFF0D8;color:#9A5F00}
+.tl-c.y2 .tl-c-badge{background:#FEE;color:#C0392B}
+.tl-c-title{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:#1A1A1A}
+.tl-c.y2 .tl-c-title{color:#8B1A1A}
+.tl-c-body{font-family:'Poppins',sans-serif;font-size:15px;color:#555;line-height:1.65;margin-top:6px}
+.tl-c.y2 .tl-c-body{color:#5A2020}
+.tl-c-body strong{color:#1A1A1A}
+.tl-c.y2 .tl-c-body strong{color:#8B1A1A}
 .tl-txt .highlight{color:var(--red);font-weight:600}
+
+/* Death stat card */
+.dstat{background:#1A1A1A;border-radius:14px;padding:34px 28px;margin:28px 0;text-align:center}
+.dstat-title{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#888;font-weight:700;margin-bottom:18px;font-family:'Poppins',sans-serif}
+.dstat-num{font-family:'DM Serif Display',serif;font-size:56px;color:#E05C5C;line-height:1;margin-bottom:6px}
+.dstat-label{font-family:'Poppins',sans-serif;font-size:14px;color:#aaa;margin-bottom:8px;line-height:1.5}
+.dstat-pulse{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:22px}
+.dstat-divider{width:40px;height:1px;background:#333;margin:0 auto 22px}
+.dstat-row{display:flex;gap:20px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+.dstat-stat{text-align:center}
+.dstat-stat-num{font-family:'DM Serif Display',serif;font-size:30px;color:#E8A020;line-height:1.1}
+.dstat-stat-label{font-family:'Poppins',sans-serif;font-size:12px;color:#888;margin-top:2px}
+.dstat-divider2{width:40px;height:1px;background:#333;margin:0 auto 20px}
+.dstat-you{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:#fff;line-height:1.5}
+.dstat-you em{color:#E8A020;font-style:normal}
 
 .ts{display:flex;gap:16px;align-items:flex-start;padding:20px 0;margin:10px 0}
 .ts-bar{width:3px;min-height:100%;background:var(--gold);border-radius:2px;flex-shrink:0}
@@ -217,7 +240,7 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
   .mike img{width:90px;height:90px;object-position:center 25%}
   .bk h2{font-size:22px}.bk{padding:30px 22px}.sum{padding:26px 22px}.traj{padding:26px 22px}
   .book-img img{width:180px}.sum h3{font-size:22px}.traj h3{font-size:20px}
-  .tl-item:not(:last-child)::after{left:17px}
+  .dstat{padding:26px 20px}.dstat-num{font-size:44px}.dstat-row{gap:14px}
 }
 </style>
 </head>
@@ -260,17 +283,17 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
   <!-- ASSESSMENT SUMMARY -->
   <div class="sum rv">
     <div class="sum-l">Your Assessment Summary</div>
-    <h3>Your body has been sending signals. Most people ignore them for years.</h3>
+    <h3>Your body has been trying to tell you something. Here&#8217;s what it&#8217;s actually saying.</h3>
     <ul>
-      <li>Energy that drops sharply after meals &#8212; that mid-afternoon crash that makes you reach for coffee or sugar just to get through the day</li>
-      <li>Hunger that comes back too fast after eating &#8212; your body is burning through glucose and asking for more</li>
-      <li>Difficulty losing weight even when you&#8217;re eating reasonably &#8212; especially around your midsection</li>
-      <li>Mental fogginess that makes concentration harder than it should be</li>
-      <li>Food cravings that feel more urgent than normal hunger &#8212; particularly for sweets or bread</li>
-      <li>A doctor who&#8217;s mentioned your blood sugar or told you to &#8220;watch what you eat&#8221; without much more guidance than that</li>
+      <li><strong>Energy that collapses after meals</strong> &#8212; that 2pm wall where you can&#8217;t think straight. That&#8217;s not tiredness. That&#8217;s your cells refusing the fuel you just sent them. Your insulin is spiking, your blood sugar crashes, and your body is losing the ability to regulate itself.</li>
+      <li><strong>Hunger that comes back an hour after eating</strong> &#8212; not because you didn&#8217;t eat enough, but because insulin resistance means your body can&#8217;t actually use what you ate. The fuel circulates. The cells don&#8217;t open. Your brain says feed me again.</li>
+      <li><strong>Belly fat that won&#8217;t move no matter what you do</strong> &#8212; that&#8217;s not a willpower problem. Chronically elevated insulin is a fat-storage hormone. Your body is being chemically instructed to hold onto it.</li>
+      <li><strong>Brain fog and concentration issues</strong> &#8212; your brain runs on glucose. When blood sugar is unstable, so is your thinking. The fogginess you&#8217;re noticing has a metabolic cause.</li>
+      <li><strong>Cravings that don&#8217;t feel optional</strong> &#8212; especially for sugar or bread. This is insulin resistance in a feedback loop. Your body is dysregulated and demanding quick fuel because the slow fuel system is broken.</li>
+      <li><strong>A doctor who told you to &#8220;watch what you eat&#8221;</strong> &#8212; without telling you what was actually happening or why the standard advice keeps failing. That&#8217;s not guidance. That&#8217;s a delay.</li>
     </ul>
-    <p class="closer">These are the classic signs of insulin resistance building in the background &#8212; the metabolic shift that precedes a Type 2 diagnosis by years. Your assessment places you in the pre-diabetic range.</p>
-    <p class="closer-bold">Here&#8217;s what matters: this is the window. Acting now is easier, faster, and more effective than acting after a formal diagnosis.</p>
+    <p class="closer">These aren&#8217;t unrelated symptoms. They&#8217;re the same problem showing up in different places. Insulin resistance &#8212; the metabolic shift that precedes a Type 2 diagnosis by years &#8212; is already active in your body. Your assessment confirms it.</p>
+    <p class="closer-bold"><strong>This is not normal aging. This is a metabolic pattern that progresses.</strong> It just hasn&#8217;t been named yet.</p>
   </div>
 
   <!-- BLOOD SUGAR CHART -->
@@ -314,57 +337,73 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     </div>
   </div>
 
-  <!-- WHERE THIS GOES — trajectory with timeline -->
+  <!-- WHERE THIS GOES — trajectory -->
   <div class="traj rv">
     <div class="tr-l">Where This Goes Without Intervention</div>
     <h3>Pre-diabetes isn&#8217;t a warning. It&#8217;s the beginning.</h3>
-    <p>Most people hear &#8220;pre-diabetic&#8221; and think they have time. They adjust a few things, lose a few pounds, and figure they&#8217;ve handled it. Then the number creeps up again. Then it doesn&#8217;t come back down.</p>
-    <p class="warn"><em>The research is consistent: without directly addressing insulin resistance, the majority of pre-diabetics will progress to full Type 2 diabetes within 10 years. For many, it happens in 5. The standard advice &#8212; &#8220;watch your diet, exercise more, we&#8217;ll check again in six months&#8221; &#8212; has a well-documented track record of not working.</em></p>
-    <p style="margin-top:16px">This isn&#8217;t a scare tactic. It&#8217;s the documented trajectory of unaddressed insulin resistance. The pattern you&#8217;re experiencing right now &#8212; the crashes, the cravings, the belly fat that won&#8217;t move &#8212; is the same pattern that appears in lab work 3 to 5 years before a formal diagnosis.</p>
+    <p>Most people hear &#8220;pre-diabetic&#8221; and think they have time. They cut back on dessert for a few weeks, lose a few pounds, and figure they&#8217;ve handled it. The number creeps back up. Then it doesn&#8217;t come back down.</p>
+    <p class="warn"><strong>The research is consistent: without directly addressing insulin resistance, the majority of pre-diabetics progress to full Type 2 diabetes within 10 years. For many, it happens in 5.</strong> The standard advice &#8212; &#8220;watch your diet, exercise more, check back in six months&#8221; &#8212; has a well-documented track record of not working. You&#8217;ve probably already experienced that.</p>
+    <p style="margin-top:16px">And here&#8217;s what full diabetes actually means: <strong>nerve damage that starts in your feet and works upward. Wounds you can&#8217;t feel healing. Vision loss. Kidney failure. Diabetes is the leading cause of lower limb amputations in the United States.</strong> Over 399,000 Americans die with diabetes as a contributing factor every single year. That number includes people who &#8220;kept an eye on it.&#8221;</p>
+    <p style="margin-top:16px">The people who walked into their doctor&#8217;s office at your exact stage and did nothing different &#8212; most of them are on medication now. Some are managing complications. <strong>You caught this early. That matters. But only if you use it.</strong></p>
   </div>
-
-  <!-- TIMELINE — unique to this page -->
+  <!-- TIMELINE — card version -->
   <div class="rv" style="margin-bottom:30px">
-    <p style="font-size:13px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--gray-lt);margin-bottom:18px">The typical pre-diabetic progression</p>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-dot now">Now</div>
-        <div class="tl-txt">
-          <strong>Pre-diabetic signals &#8212; where you are today</strong>
-          <p>Insulin resistance is active. Blood sugar is spiking and crashing. The symptoms are real but easy to dismiss. This is also the easiest stage to reverse.</p>
+    <p style="font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--gray-lt);margin-bottom:20px">The typical pre-diabetic progression</p>
+    <div class="tl-card">
+      <div class="tl-c now">
+        <div class="tl-c-header">
+          <span class="tl-c-badge">Now</span>
+          <span class="tl-c-title">Pre-diabetic signals &#8212; where you are today</span>
         </div>
+        <div class="tl-c-body">Insulin resistance is active. Blood sugar spikes and crashes daily. The symptoms are real but easy to explain away. <strong>This is also the easiest stage to reverse &#8212; and the one where results come fastest.</strong></div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot y1">1 yr</div>
-        <div class="tl-txt">
-          <strong>Resistance deepens</strong>
-          <p>Without change, fasting glucose climbs. Symptoms intensify. Your doctor starts running HbA1c tests more often. The conversation shifts from &#8220;watch your diet&#8221; to <span class="highlight">&#8220;we should talk about medication.&#8221;</span></p>
+      <div class="tl-c m6">
+        <div class="tl-c-header">
+          <span class="tl-c-badge">6 Months</span>
+          <span class="tl-c-title">Resistance deepens quietly</span>
         </div>
+        <div class="tl-c-body">Fasting glucose continues climbing. The crashes get worse. Your doctor starts ordering A1C tests more frequently. The symptoms you&#8217;ve been brushing off become harder to ignore &#8212; and harder to fix.</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot y3">3 yr</div>
-        <div class="tl-txt">
-          <strong>Borderline or diagnosed</strong>
-          <p>A1C crosses 6.5%. You&#8217;re now managing diabetes, not preventing it. The damage to blood vessels and nerves has been accumulating quietly for years. Reversal is still possible &#8212; but significantly harder.</p>
+      <div class="tl-c y1">
+        <div class="tl-c-header">
+          <span class="tl-c-badge">1 Year</span>
+          <span class="tl-c-title">Medication enters the conversation</span>
         </div>
+        <div class="tl-c-body">The standard advice has failed, as it usually does. Your doctor starts talking about Metformin. <strong>You&#8217;re no longer preventing diabetes &#8212; you&#8217;re being managed toward it.</strong> Weight keeps coming on. The window is narrowing.</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot y5">5&#43;yr</div>
-        <div class="tl-txt">
-          <strong>Managing complications</strong>
-          <p>Neuropathy. Retinopathy. Kidney function concerns. Multiple medications. <span class="highlight">This is the standard outcome for people who were told &#8220;keep an eye on it&#8221; and did nothing different.</span></p>
+      <div class="tl-c y2">
+        <div class="tl-c-header">
+          <span class="tl-c-badge">2+ Years</span>
+          <span class="tl-c-title">Full Type 2 &#8212; and everything that comes with it</span>
         </div>
+        <div class="tl-c-body"><strong>A1C crosses 6.5%. You&#8217;re now diabetic.</strong> Nerve damage begins accumulating &#8212; often silently. Kidney function starts to decline. Eyes are affected. <strong>Diabetes is the leading cause of lower limb amputations in the US.</strong> People don&#8217;t see this coming because they kept &#8220;keeping an eye on it.&#8221;</div>
       </div>
     </div>
   </div>
 
-  <!-- THE WINDOW — unique green box for this page -->
-  <div class="window rv">
-    <div class="win-l">The Window You Have Right Now</div>
-    <h3>Pre-diabetes is the best time to act. The body is still fully responsive.</h3>
-    <p>At this stage, insulin resistance hasn&#8217;t locked in yet. Pancreatic function is still intact. The liver is still capable of resetting. There&#8217;s no permanent damage to reverse.</p>
-    <p><strong>People who remove the cause at the pre-diabetic stage consistently see faster results than those who wait for a diagnosis.</strong> A1C drops. Energy stabilizes. Weight shifts. The symptoms that have been building for years start going the other direction &#8212; often within weeks.</p>
-    <p>This window closes. Not dramatically, not suddenly &#8212; but gradually, as each year of unaddressed insulin resistance makes the job harder. <strong>Right now, it&#8217;s still easy.</strong></p>
+  <!-- DEATH STAT CARD -->
+  <div class="dstat rv">
+    <div class="dstat-title">&#9888; The Numbers Nobody Tells You</div>
+    <div class="dstat-num">399,342</div>
+    <div class="dstat-label">Americans died with diabetes as a contributing cause<br>in a single year — based on CDC death certificate data</div>
+    <div class="dstat-pulse">That&#8217;s over 1,000 people. Every single day.</div>
+    <div class="dstat-divider"></div>
+    <div class="dstat-row">
+      <div class="dstat-stat">
+        <div class="dstat-stat-num">115M</div>
+        <div class="dstat-stat-label">Americans have prediabetes</div>
+      </div>
+      <div class="dstat-stat">
+        <div class="dstat-stat-num">8 in 10</div>
+        <div class="dstat-stat-label">don&#8217;t know it&#8217;s progressing</div>
+      </div>
+      <div class="dstat-stat">
+        <div class="dstat-stat-num">1.5M</div>
+        <div class="dstat-stat-label">new diagnoses every year</div>
+      </div>
+    </div>
+    <div class="dstat-divider2"></div>
+    <div class="dstat-you">You just found out yours is progressing.<br><em>That makes you one of the few who can actually do something about it.</em></div>
   </div>
 
   <!-- BOOK SECTION -->
@@ -372,7 +411,9 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     <div class="bk-l">Your Reversal Roadmap</div>
     <h2>You caught this early. Here&#8217;s what to do with that advantage.</h2>
 
-    <p class="future">Imagine going back to your doctor in 90 days and watching their expression change when they see your numbers. A1C down. Fasting glucose normalizing. A doctor asking &#8220;what did you change?&#8221; instead of &#8220;we need to talk about next steps.&#8221;</p>
+    <p class="future">Pre-diabetes is the stage where the process in this book works fastest. Insulin resistance hasn&#8217;t locked in. The pancreas is still intact. People who act here get results in weeks, not months &#8212; and the changes stick.</p>
+
+    <p class="future" style="margin-top:0">Imagine going back to your doctor in 90 days and watching their expression change when they see your numbers. A1C down. Fasting glucose normalizing. A doctor asking &#8220;what did you change?&#8221; instead of &#8220;we need to talk about next steps.&#8221;</p>
 
     <p class="proof">That&#8217;s what happened for 60,000+ people who followed this process &#8212; many of them starting from exactly where you are right now.</p>
 
@@ -387,6 +428,7 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     <p class="method">The process works in three phases: remove what&#8217;s causing the resistance, rebuild using food that keeps blood sugar stable, and use your body&#8217;s own feedback to fine-tune. No complicated protocols. No eliminating entire food groups permanently.</p>
 
     <p class="objections">And it addresses what actually happens in real life &#8212; the cravings at night, the social events, the family members who think you&#8217;re overreacting, and the moments when nothing seems to be working.</p>
+
 
     <div class="book-img">
       <a href="https://reversediabetes.sugardetox.com/after-quiz-result" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,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" alt="How to Reverse Type 2 Diabetes by Mike Collins"></a>
