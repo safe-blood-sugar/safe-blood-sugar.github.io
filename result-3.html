@@ -217,10 +217,11 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 
 .st-l{font-size:11px;color:var(--gray-lt);font-weight:500}
 
-.aft{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:28px 0}
-.af{background:var(--green-lt);border-radius:12px;padding:16px 10px;text-align:center}
-.af-i{font-size:24px;display:block;margin-bottom:5px}
-.af-l{font-size:12px;font-weight:600;color:var(--green-dk);line-height:1.3}
+.aft{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.af{background:var(--green-lt);border-radius:12px;padding:18px 14px;text-align:center}
+.af-i{font-size:22px;display:block;margin-bottom:4px}
+.af-t{font-size:13px;font-weight:700;color:var(--green-dk);line-height:1.3;margin-bottom:3px}
+.af-d{font-size:11px;color:var(--gray);line-height:1.45;font-weight:400}
 
 .cta{text-align:center;padding:32px 0 10px}
 .cta-pre{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:22px;line-height:1.5}
@@ -252,7 +253,9 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 .a1c-labels{display:flex;font-size:10px;color:var(--gray-lt);font-weight:500;margin-bottom:14px}
 .a1c-labels span{flex:1;text-align:center}
 .a1c-labels .a1c-hl{color:var(--red);font-weight:700}
-.a1c-marker{position:absolute;top:-8px;width:4px;height:44px;background:var(--dark);border-radius:2px;z-index:2;transition:left 1.5s cubic-bezier(.22,1,.36,1)}
+@keyframes a1cDrift{0%,100%{left:68%}50%{left:78%}}
+.a1c-marker{position:absolute;top:-8px;width:4px;height:44px;background:var(--dark);border-radius:2px;z-index:2;left:0%;opacity:0;transition:opacity .4s}
+.a1c-marker.active{opacity:1;animation:a1cDrift 3.5s ease-in-out infinite}
 .a1c-marker::after{content:'YOU';position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:800;color:var(--dark);letter-spacing:.8px;white-space:nowrap;font-family:var(--fb)}
 .a1c-zones{display:flex;justify-content:space-between;font-size:11px;font-weight:600;margin-top:2px}
 .a1c-zones .z-ok{color:var(--green)}
@@ -452,7 +455,7 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 
   <!-- MID-PAGE CTA -->
   <div class="cta rv">
-    <p class="cta-pre">That&#8217;s the first 72 hours. The complete three-phase reversal process &#8212; what to eat, what to avoid, how to read your labs, and what to do when cravings hit &#8212; is in this book.</p>
+    <p class="cta-pre">That&#8217;s the first 72 hours. The complete three-phase reversal process &#8212; what to eat, what to avoid, how to read your labs, and what to do when cravings hit &#8212; is in <em>How to Reverse Type 2 Diabetes.</em></p>
     <a href="https://reversediabetes.sugardetox.com/after-quiz-result" target="_blank" rel="noopener" class="btn">GET YOUR REVERSAL PLAN &#8594;</a>
     <p class="cta-s">Instant digital access. Start reading in 2 minutes.<span class="anc">Less than a single doctor&#8217;s copay.</span></p>
   </div>
@@ -496,16 +499,16 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     </div>
 
     <div class="aft">
-      <div class="af"><span class="af-i">&#9889;</span><span class="af-l">Steady energy</span></div>
-      <div class="af"><span class="af-i">&#129504;</span><span class="af-l">Brain fog gone</span></div>
-      <div class="af"><span class="af-i">&#128275;</span><span class="af-l">Cravings break</span></div>
-      <div class="af"><span class="af-i">&#9878;&#65039;</span><span class="af-l">Weight shifts</span></div>
-      <div class="af"><span class="af-i">&#128564;</span><span class="af-l">Deeper sleep</span></div>
-      <div class="af"><span class="af-i">&#128201;</span><span class="af-l">Meds reduced</span></div>
+      <div class="af"><span class="af-i">&#9889;</span><span class="af-t">No more crashes</span><span class="af-d">Blood sugar stabilizes. The 3pm wall disappears.</span></div>
+      <div class="af"><span class="af-i">&#129504;</span><span class="af-t">Clear thinking returns</span><span class="af-d">Glucose reaches your brain consistently, not in spikes.</span></div>
+      <div class="af"><span class="af-i">&#128275;</span><span class="af-t">Cravings stop</span><span class="af-d">The insulin-driven hunger loop shuts off.</span></div>
+      <div class="af"><span class="af-i">&#9878;&#65039;</span><span class="af-t">Belly fat responds</span><span class="af-d">Insulin drops. The fat-storage signal turns off.</span></div>
+      <div class="af"><span class="af-i">&#128564;</span><span class="af-t">Sleep normalizes</span><span class="af-d">Overnight blood sugar stabilizes. No more waking exhausted.</span></div>
+      <div class="af"><span class="af-i">&#128201;</span><span class="af-t">Meds reduced</span><span class="af-d">Doctors reduce or remove medications.</span></div>
     </div>
 
     <div class="cta">
-      <p class="cta-pre">Your assessment found the pattern. This is the plan to reverse it.</p>
+      <p class="cta-pre">Your assessment found the pattern. <em>How to Reverse Type 2 Diabetes</em> is the step-by-step process built to reverse it.</p>
       <a href="https://reversediabetes.sugardetox.com/after-quiz-result" target="_blank" rel="noopener" class="btn">GET YOUR REVERSAL PLAN &#8594;</a>
       <p class="cta-s">Instant digital access. Start reading in 2 minutes.<span class="anc">Less than a single doctor&#8217;s copay.</span></p>
     </div>
@@ -532,7 +535,7 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
   </div>
 
   <div class="fcta rv">
-    <p class="fl">Your assessment showed <em>diabetic patterns.</em><br>The standard approach manages them.<br>This book addresses the cause.</p>
+    <p class="fl">Your assessment showed <em>diabetic patterns.</em><br>The standard approach manages them.<br><em>How to Reverse Type 2 Diabetes</em> addresses the cause.</p>
     <a href="https://reversediabetes.sugardetox.com/after-quiz-result" target="_blank" rel="noopener" class="btn">GET YOUR REVERSAL PLAN &#8594;</a>
     <p class="cta-s" style="margin-top:16px">Instant digital access &#183; Start reading in 2 minutes<span class="anc">Less than a single doctor&#8217;s copay.</span></p>
   </div>
@@ -594,12 +597,14 @@ const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
   x.target.classList.add('v');
   const chart=x.target.querySelector('#bsChart');
   if(chart)chart.classList.add('animate');
-  // A1C marker animation
+  // A1C marker animation — oscillates in the red zone
   const a1cM=x.target.querySelector('#a1cMarker');
-  if(a1cM&&!a1cM.dataset.done){a1cM.dataset.done='1';setTimeout(()=>{a1cM.style.left='72%'},200);}
+  if(a1cM&&!a1cM.dataset.done){a1cM.dataset.done='1';setTimeout(()=>{a1cM.classList.add('active')},200);}
   if(x.target.id==='bookSection'&&!statsStarted){
     statsStarted=true;
-    setTimeout(()=>{animateStats();setInterval(animateStats,4000);},500);
+    let statsPlays=0;
+    function runStats(){if(statsPlays<2){animateStats();statsPlays++;}};
+    setTimeout(()=>{runStats();setTimeout(runStats,4000);},500);
   }
 }});},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
