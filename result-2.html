@@ -214,10 +214,11 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 .st-n{font-family:var(--fd);font-size:24px;color:var(--dark);line-height:1;margin-bottom:4px}
 .st-l{font-size:11px;color:var(--gray-lt);font-weight:500}
 
-.aft{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:28px 0}
-.af{background:var(--green-lt);border-radius:12px;padding:16px 10px;text-align:center}
-.af-i{font-size:24px;display:block;margin-bottom:5px}
-.af-l{font-size:12px;font-weight:600;color:var(--green-dk);line-height:1.3}
+.aft{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.af{background:var(--green-lt);border-radius:12px;padding:18px 14px;text-align:center}
+.af-i{font-size:22px;display:block;margin-bottom:4px}
+.af-t{font-size:13px;font-weight:700;color:var(--green-dk);line-height:1.3;margin-bottom:3px;display:block}
+.af-d{font-size:11px;color:var(--gray);line-height:1.45;font-weight:400;display:block}
 
 .cta{text-align:center;padding:32px 0 10px}
 .cta-pre{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:22px;line-height:1.5}
@@ -253,7 +254,9 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 .a1c-zones .z-ok{color:var(--green)}
 .a1c-zones .z-pre{color:var(--amber)}
 .a1c-zones .z-diab{color:var(--red)}
-.a1c-marker{position:absolute;top:-8px;width:4px;height:44px;background:var(--dark);border-radius:2px;z-index:2;transition:left 1.5s cubic-bezier(.22,1,.36,1)}
+.a1c-marker{position:absolute;top:-8px;width:4px;height:44px;background:var(--dark);border-radius:2px;z-index:2;left:0%;opacity:0;transition:opacity .4s}
+.a1c-marker.active{opacity:1;animation:a1cDriftAmber 3.5s ease-in-out infinite}
+@keyframes a1cDriftAmber{0%,100%{left:36%}50%{left:50%}}
 .a1c-marker::after{content:'YOU';position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:800;color:var(--dark);letter-spacing:.8px;white-space:nowrap;font-family:var(--fb)}
 .a1c-cap{font-size:14px;color:var(--gray);text-align:center;line-height:1.6;margin-top:16px}
 .a1c-cap strong{color:var(--dark)}
@@ -323,21 +326,18 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
       <li>Energy that collapses after meals, especially that 2pm wall &#8212; <strong>your blood sugar is spiking then crashing because your cells aren&#8217;t absorbing the glucose efficiently</strong></li>
       <li>Hunger that comes back 60&#8211;90 minutes after eating &#8212; <strong>insulin resistance means your body can&#8217;t use the fuel you just sent it, so your brain demands more</strong></li>
       <li>Belly fat that won&#8217;t move no matter what you do &#8212; <strong>chronically elevated insulin is a fat-storage hormone, chemically instructing your body to hold onto it</strong></li>
-      <li>Brain fog and concentration issues &#8212; <strong>your brain runs on glucose, and when blood sugar is unstable, so is your thinking</strong></li>
-      <li>Cravings that don&#8217;t feel optional, especially for sugar or bread &#8212; <strong>this is a feedback loop: your body is dysregulated and demanding quick fuel because the slow fuel system is failing</strong></li>
       <li>A doctor who told you to &#8220;watch what you eat&#8221; &#8212; <strong>without telling you what&#8217;s actually happening or why the standard advice keeps failing</strong></li>
     </ul>
     <p class="closer">Every one of these has the same root cause: your cells are becoming resistant to insulin. It&#8217;s not a collection of random complaints. It&#8217;s one problem showing up in different places &#8212; and your assessment confirms it&#8217;s already active.</p>
-    <p class="closer-bold">The next section explains exactly what&#8217;s happening inside your body &#8212; and why this stage is actually the best time to stop it.</p>
   </div>
 
   <!-- MECHANISTIC EXPLAINER — pre-diabetic tier -->
   <div class="mech rv">
     <div class="mech-l">What&#8217;s Starting to Happen Inside You</div>
     <h3>Insulin resistance isn&#8217;t something that happens overnight. It builds &#8212; and your body is already in the cycle.</h3>
-    <p>Insulin is a key. Its job is to unlock your cells so glucose &#8212; the energy from food &#8212; can get inside. <strong>When you eat sugar or processed carbohydrates repeatedly, your cells start ignoring the key.</strong> They&#8217;re tired of the constant knocking. That&#8217;s insulin resistance &#8212; and it&#8217;s what your symptoms are pointing to.</p>
-    <p>Your pancreas responds by producing more insulin &#8212; more keys &#8212; to force the glucose in. For a while, this works. Your fasting glucose might still look &#8220;normal&#8221; on a blood test. <strong>But behind that normal number, your pancreas is working overtime</strong>, your insulin levels are elevated, and the excess glucose that can&#8217;t enter your cells is being converted into fat &#8212; especially around your midsection.</p>
-    <p><strong>This is the stage you&#8217;re in right now.</strong> The cycle is active but hasn&#8217;t caused permanent damage yet. Your pancreas hasn&#8217;t worn out. Your cells can still recover their sensitivity to insulin. But each month of continuing the same eating patterns pushes the cycle further &#8212; and closer to the threshold where pre-diabetes becomes Type 2.</p>
+    <p>Insulin is a key. Its job is to unlock your cells so glucose can get inside. <strong>When you eat sugar or processed carbohydrates repeatedly, your cells start ignoring the key.</strong> That&#8217;s insulin resistance &#8212; and it&#8217;s what your symptoms are pointing to.</p>
+    <p>Your pancreas responds by producing more insulin to force the glucose in. For a while, this works. Your fasting glucose might still look &#8220;normal.&#8221; <strong>But behind that normal number, your pancreas is working overtime</strong>, your insulin levels are elevated, and the excess glucose is being converted into fat &#8212; especially around your midsection.</p>
+    <p><strong>This is the stage you&#8217;re in right now.</strong> The cycle is active but hasn&#8217;t caused permanent damage yet. Your cells can still recover. But each month of continuing the same eating patterns pushes the cycle closer to the threshold where pre-diabetes becomes Type 2.</p>
     <p class="mech-src">Source: <em>How to Reverse Type 2 Diabetes</em>, Chapter 2 &#8212; &#8220;Your Body on Sugar: The Science of Metabolic Destruction&#8221;</p>
   </div>
 
@@ -434,9 +434,8 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     <div class="tr-l">Where This Goes Without Intervention</div>
     <h3>Pre-diabetes isn&#8217;t a warning. It&#8217;s the beginning.</h3>
     <p>Most people hear &#8220;pre-diabetic&#8221; and think they have time. They cut back on dessert for a few weeks, lose a few pounds, and figure they&#8217;ve handled it. The number creeps back up. Then it doesn&#8217;t come back down.</p>
-    <p class="warn"><strong>The research is consistent: without directly addressing insulin resistance, the majority of pre-diabetics progress to full Type 2 diabetes within 10 years. For many, it happens in 5.</strong> The standard advice &#8212; &#8220;watch your diet, exercise more, check back in six months&#8221; &#8212; has a well-documented track record of not working. You&#8217;ve probably already experienced that.</p>
-    <p style="margin-top:16px">And here&#8217;s what full diabetes actually means: <strong>nerve damage that starts in your feet and works upward. Wounds you can&#8217;t feel healing. Vision loss. Kidney failure. Diabetes is the leading cause of lower limb amputations in the United States.</strong> Over 399,000 Americans die with diabetes as a contributing factor every single year. That number includes people who &#8220;kept an eye on it.&#8221;</p>
-    <p style="margin-top:16px">The people who walked into their doctor&#8217;s office at your exact stage and did nothing different &#8212; most of them are on medication now. Some are managing complications. <strong>You caught this early. That matters. But only if you use it.</strong></p>
+    <p class="warn"><strong>Without directly addressing insulin resistance, the majority of pre-diabetics progress to full Type 2 diabetes within 10 years. For many, it happens in 5.</strong> The standard advice has a well-documented track record of not working. You&#8217;ve probably already experienced that.</p>
+    <p style="margin-top:16px"><strong>You caught this early. That matters. But only if you use it.</strong></p>
   </div>
   <!-- TIMELINE — card version -->
   <div class="rv" style="margin-bottom:30px">
@@ -477,10 +476,10 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
   <div class="fval rv">
     <div class="fval-l">3 Things You Can Do Right Now</div>
     <h3>You caught this at the stage where small changes produce the biggest results. Start with these three.</h3>
-    <div class="fv-item"><strong>Stop eating every 2&#8211;3 hours.</strong> Constant eating keeps insulin elevated all day. Every time you eat &#8212; even &#8220;healthy&#8221; snacks &#8212; your pancreas has to produce insulin. When insulin never drops, your cells never get a break from the constant signal, and the resistance deepens. Eat real meals. Stop snacking between them.</div>
-    <div class="fv-item"><strong>Cut liquid sugar first.</strong> Sodas, fruit juice, sweetened coffee, energy drinks &#8212; liquid sugar hits your bloodstream faster than any other form. It triggers the most aggressive insulin response. Eliminating liquid sugar alone is the single fastest way to start bringing your blood glucose down. Water, black coffee, unsweetened tea.</div>
-    <div class="fv-item"><strong>Switch your cooking oils.</strong> Replace seed oils (canola, soybean, corn, vegetable) with extra virgin olive oil or avocado oil. Seed oils drive inflammation that worsens insulin resistance. People who make this switch alongside cutting sugar report feeling dramatically better by day ten &#8212; fewer headaches, less fatigue, clearer thinking.</div>
-    <p class="fv-bridge">These three changes are the first 72 hours of the method that reversed Mike Collins&#8217; pre-diabetes 37 years ago &#8212; and has worked for 60,000+ people since. The ones who started at your stage got the fastest results. The complete three-phase process is in the book below.</p>
+    <div class="fv-item"><strong>Stop eating every 2&#8211;3 hours.</strong> Constant eating keeps insulin elevated all day. When insulin never drops, your cells never get a break and the resistance worsens. Eat real meals. Stop snacking between them.</div>
+    <div class="fv-item"><strong>Cut liquid sugar first.</strong> Sodas, fruit juice, sweetened coffee, energy drinks &#8212; liquid sugar triggers the most aggressive insulin response. Eliminating it is the single fastest way to lower your blood glucose. Water, black coffee, unsweetened tea.</div>
+    <div class="fv-item"><strong>Switch your cooking oils.</strong> Replace seed oils (canola, soybean, corn, vegetable) with extra virgin olive oil or avocado oil. Seed oils drive inflammation that worsens insulin resistance. People who make this switch report feeling dramatically better within ten days.</div>
+    <p class="fv-bridge">These three changes are the first 72 hours of the method that reversed my pre-diabetes 37 years ago &#8212; and has worked for 60,000+ people since. The complete process is in the book below.</p>
   </div>
 
   <!-- MID-PAGE CTA -->
@@ -493,21 +492,17 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
   <!-- BOOK SECTION -->
   <div class="bk rv" id="bookSection">
     <div class="bk-l">Your Reversal Roadmap</div>
-    <h2>You caught this early. Here&#8217;s what to do with that advantage.</h2>
-
-    <p class="future">60,000+ people have gone from pre-diabetic to normal numbers following this process. The ones who started at this stage got there the fastest. Go back to your doctor in 90 days and watch their expression change &#8212; A1C down, fasting glucose normalizing, a doctor asking &#8220;what did you change?&#8221; instead of &#8220;we need to talk about next steps.&#8221;</p>
-
-    <p class="proof">Here&#8217;s what changes when you address the actual cause:</p>
+    <h2>The window to reverse this is still open. Here&#8217;s what changes when you address the cause.</h2>
 
     <ul class="items">
-      <li><span class="num">1</span><span class="itxt"><strong>The cravings stop running you</strong> &#8212; once you understand what&#8217;s triggering them and remove that trigger, the urgency disappears. Not through willpower, through chemistry</span></li>
-      <li><span class="num">2</span><span class="itxt"><strong>Energy evens out across the day</strong> &#8212; no more 3pm wall, no more needing sugar or caffeine to function. Blood sugar stabilizes and stays there</span></li>
-      <li><span class="num">3</span><span class="itxt"><strong>The belly fat responds</strong> &#8212; because the hormonal signal that puts it there &#8212; and keeps it there despite dieting &#8212; finally shuts off</span></li>
-      <li><span class="num">4</span><span class="itxt"><strong>Your labs start moving in the right direction</strong> &#8212; fasting glucose comes down, A1C improves, your doctor stops talking about medication</span></li>
-      <li><span class="num">5</span><span class="itxt"><strong>You don&#8217;t become a patient</strong> &#8212; the goal isn&#8217;t managing this condition for the rest of your life. It&#8217;s removing the cause so there&#8217;s nothing left to manage</span></li>
+      <li><span class="num">1</span><span class="itxt"><strong>The exhaustion breaks</strong> &#8212; steady energy from morning through evening, no 3pm crash</span></li>
+      <li><span class="num">2</span><span class="itxt"><strong>The blood sugar stabilizes</strong> &#8212; no more spikes and crashes running your mood and your hunger</span></li>
+      <li><span class="num">3</span><span class="itxt"><strong>The weight around your midsection starts moving</strong> &#8212; because the hormonal signal forcing your body to store fat finally shuts off</span></li>
+      <li><span class="num">4</span><span class="itxt"><strong>Your labs tell a different story</strong> &#8212; A1C moving down, fasting glucose normalizing, your doctor surprised</span></li>
+      <li><span class="num">5</span><span class="itxt"><strong>You stop being a patient</strong> &#8212; fewer medications, fewer appointments, fewer conversations about &#8220;managing&#8221; a condition that doesn&#8217;t have to define your life</span></li>
     </ul>
 
-    <p class="method">The process works in three phases: remove what&#8217;s causing the resistance, rebuild using food that keeps blood sugar stable, and use your body&#8217;s own feedback to fine-tune. No complicated protocols. No eliminating entire food groups permanently.</p>
+    <p class="method">The process works in three phases: remove what&#8217;s causing the resistance, rebuild with real food, and fine-tune using your body&#8217;s own feedback.</p>
 
     <p class="objections">And it addresses what actually happens in real life &#8212; the cravings at night, the social events, the family members who think you&#8217;re overreacting, and the moments when nothing seems to be working.</p>
 
@@ -532,12 +527,12 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     </div>
 
     <div class="aft">
-      <div class="af"><span class="af-i">&#9889;</span><span class="af-l">Steady energy</span></div>
-      <div class="af"><span class="af-i">&#129504;</span><span class="af-l">Brain fog gone</span></div>
-      <div class="af"><span class="af-i">&#128275;</span><span class="af-l">Cravings break</span></div>
-      <div class="af"><span class="af-i">&#9878;&#65039;</span><span class="af-l">Weight shifts</span></div>
-      <div class="af"><span class="af-i">&#128564;</span><span class="af-l">Deeper sleep</span></div>
-      <div class="af"><span class="af-i">&#128201;</span><span class="af-l">Numbers improve</span></div>
+      <div class="af"><span class="af-i">&#9889;</span><span class="af-t">No more crashes</span><span class="af-d">Blood sugar stabilizes. The 3pm wall disappears.</span></div>
+      <div class="af"><span class="af-i">&#129504;</span><span class="af-t">Clear thinking returns</span><span class="af-d">Glucose reaches your brain consistently, not in spikes.</span></div>
+      <div class="af"><span class="af-i">&#128275;</span><span class="af-t">Cravings stop</span><span class="af-d">The insulin-driven hunger loop shuts off.</span></div>
+      <div class="af"><span class="af-i">&#9878;&#65039;</span><span class="af-t">Belly fat responds</span><span class="af-d">Insulin drops. The fat-storage signal turns off.</span></div>
+      <div class="af"><span class="af-i">&#128564;</span><span class="af-t">Sleep normalizes</span><span class="af-d">Overnight blood sugar stabilizes. No more waking exhausted.</span></div>
+      <div class="af"><span class="af-i">&#128201;</span><span class="af-t">Meds reduced</span><span class="af-d">Doctors reduce or remove medications.</span></div>
     </div>
 
     <div class="cta">
@@ -631,12 +626,14 @@ const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){
   x.target.classList.add('v');
   const chart=x.target.querySelector('#bsChart');
   if(chart)chart.classList.add('animate');
-  // A1C marker animation — pre-diabetic position (~44%)
+  // A1C marker animation — pre-diabetic position, oscillates in amber zone
   const a1cM=x.target.querySelector('#a1cMarker');
-  if(a1cM&&!a1cM.dataset.done){a1cM.dataset.done='1';setTimeout(()=>{a1cM.style.left='44%'},200);}
+  if(a1cM&&!a1cM.dataset.done){a1cM.dataset.done='1';setTimeout(()=>{a1cM.classList.add('active')},200);}
   if(x.target.id==='bookSection'&&!statsStarted){
     statsStarted=true;
-    setTimeout(()=>{animateStats();setInterval(animateStats,4000);},500);
+    let statsPlays=0;
+    function runStats(){if(statsPlays<3){animateStats();statsPlays++;}};
+    setTimeout(()=>{runStats();setTimeout(runStats,4000);setTimeout(()=>{runStats()},8000);},500);
   }
 }});},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
