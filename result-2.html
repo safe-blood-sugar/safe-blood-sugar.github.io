@@ -567,7 +567,34 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     <a href="https://reversediabetes.sugardetox.com/after-quiz-result" target="_blank" rel="noopener" class="btn">GET YOUR REVERSAL PLAN &#8594;</a>
     <p class="cta-s" style="margin-top:16px">Instant digital access &#183; Start reading in 2 minutes<span class="anc">Less than a single doctor&#8217;s copay.</span></p>
   </div>
+  
+<!-- SHARE SECTION -->
+  <div class="share rv">
+    <h3>Someone you care about might need this quiz.</h3>
+    <p>You caught yours at the pre-diabetic stage. Most people don&#8217;t. If someone in your life has been exhausted after meals, carrying weight around the middle, or heard a doctor say &#8220;let&#8217;s keep an eye on it&#8221; &#8212; this 2-minute quiz could change what happens next for them.</p>
+    <button class="share-btn" onclick="document.getElementById('shareModal').style.display='flex'">SHARE THIS QUIZ</button>
+    <p class="share-note">The quiz is free. It takes 2 minutes. Early detection is the whole game.</p>
+  </div>
 
+  <!-- SHARE MODAL -->
+  <div id="shareModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:var(--white);border-radius:16px;padding:32px 28px;max-width:420px;width:100%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+      <button onclick="document.getElementById('shareModal').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;color:var(--gray-lt);cursor:pointer;line-height:1">&times;</button>
+      <div style="font-size:28px;margin-bottom:8px">&#128172;</div>
+      <h3 style="font-family:var(--fd);font-size:22px;color:var(--dark);font-weight:400;margin-bottom:8px">Share this quiz</h3>
+      <p style="font-size:14px;color:var(--gray);margin-bottom:22px;line-height:1.5">Send someone the 2-minute blood sugar assessment. It&#8217;s free.</p>
+      <div style="display:flex;gap:8px;margin-bottom:20px">
+        <input id="shareUrl" readonly value="https://sugar-detox.involve.me/blood-sugar-quiz" style="flex:1;padding:12px 14px;border:1.5px solid var(--gray-pale);border-radius:8px;font-family:var(--fb);font-size:13px;color:var(--dark);background:var(--cream);outline:none;min-width:0">
+        <button id="copyBtn" onclick="navigator.clipboard.writeText(document.getElementById('shareUrl').value).then(()=>{const b=document.getElementById('copyBtn');b.textContent='Copied \u2713';b.style.background='var(--green)';setTimeout(()=>{b.textContent='Copy';b.style.background='var(--dark)'},2000)})" style="padding:12px 20px;background:var(--dark);color:var(--white);border:none;border-radius:8px;font-family:var(--fb);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s">Copy</button>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/?text=Hey%2C%20take%20this%20quick%20blood%20sugar%20quiz%20when%20you%20get%20a%20chance.%20I%20just%20did%20it%20and%20it%20was%20eye-opening.%20Only%20takes%202%20minutes.%20https%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#1877F2;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=Hey%2C%20take%20this%20quick%20blood%20sugar%20quiz%20when%20you%20get%20a%20chance.%20I%20just%20did%20it%20and%20it%20was%20eye-opening.%20Only%20takes%202%20minutes.&url=https%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#1A1A1A;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">X</a>
+        <a href="mailto:?subject=Quick%20blood%20sugar%20quiz%20%E2%80%94%202%20minutes&body=Hey%2C%20take%20this%20quick%20blood%20sugar%20quiz%20when%20you%20get%20a%20chance.%20I%20just%20did%20it%20and%20it%20was%20eye-opening.%20Only%20takes%202%20minutes.%0A%0Ahttps%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:var(--gray);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">Email</a>
+      </div>
+    </div>
+  </div>
   <p class="soft rv">60,000+ people followed this process. The ones who started at the pre-diabetic stage consistently saw the fastest results.</p>
 
 </div>
