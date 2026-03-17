@@ -6,6 +6,13 @@
 <title>Your Blood Sugar Assessment Results</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
+  .share{background:var(--cream);border-radius:14px;padding:30px 28px;margin:30px 0;text-align:center;border:1px solid var(--cream-dk)}
+.share h3{font-family:var(--fd);font-size:22px;color:var(--dark);font-weight:400;line-height:1.35;margin-bottom:14px}
+.share p{font-size:15px;color:var(--gray);line-height:1.65;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto}
+.share-btn{display:inline-block;background:var(--dark);color:var(--white);font-family:var(--fb);font-size:15px;font-weight:700;padding:14px 36px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;letter-spacing:.3px;transition:all .2s}
+.share-btn:hover{background:#333;transform:translateY(-2px)}
+.share .share-note{font-size:12px;color:var(--gray-lt);margin-top:12px;font-style:italic}
+  
 :root {
   --red:#B8312F;--red-bg:#FFF5F4;--cream:#FDF8F0;--cream-dk:#F0E8D8;
   --green:#2D8B4E;--green-lt:#EDF7F0;--green-dk:#1E6B38;
@@ -534,6 +541,34 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
     <p class="cta-s" style="margin-top:16px">Instant digital access &#183; Start reading in 2 minutes<span class="anc">Less than a single doctor&#8217;s copay.</span></p>
   </div>
 
+  <!-- SHARE SECTION -->
+  <div class="share rv">
+    <h3>Send this to someone before their doctor has to.</h3>
+    <p>115 million Americans are pre-diabetic and most don&#8217;t know it. If someone in your life has been tired all the time, gaining weight they can&#8217;t explain, or keeps hearing their numbers are &#8220;borderline&#8221; &#8212; two minutes with this quiz could be the wake-up call they need.</p>
+    <button class="share-btn" onclick="document.getElementById('shareModal').style.display='flex'">SHARE THIS QUIZ</button>
+    <p class="share-note">The quiz is free. It takes 2 minutes. You knowing about it could matter more than you think.</p>
+  </div>
+
+  <!-- SHARE MODAL -->
+  <div id="shareModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:var(--white);border-radius:16px;padding:32px 28px;max-width:420px;width:100%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+      <button onclick="document.getElementById('shareModal').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;color:var(--gray-lt);cursor:pointer;line-height:1">&times;</button>
+      <div style="font-size:28px;margin-bottom:8px">&#128172;</div>
+      <h3 style="font-family:var(--fd);font-size:22px;color:var(--dark);font-weight:400;margin-bottom:8px">Share this quiz</h3>
+      <p style="font-size:14px;color:var(--gray);margin-bottom:22px;line-height:1.5">Send someone the 2-minute blood sugar assessment. It&#8217;s free.</p>
+      <div style="display:flex;gap:8px;margin-bottom:20px">
+        <input id="shareUrl" readonly value="https://sugar-detox.involve.me/blood-sugar-quiz" style="flex:1;padding:12px 14px;border:1.5px solid var(--gray-pale);border-radius:8px;font-family:var(--fb);font-size:13px;color:var(--dark);background:var(--cream);outline:none;min-width:0">
+        <button id="copyBtn" onclick="navigator.clipboard.writeText(document.getElementById('shareUrl').value).then(()=>{const b=document.getElementById('copyBtn');b.textContent='Copied \u2713';b.style.background='var(--green)';setTimeout(()=>{b.textContent='Copy';b.style.background='var(--dark)'},2000)})" style="padding:12px 20px;background:var(--dark);color:var(--white);border:none;border-radius:8px;font-family:var(--fb);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s">Copy</button>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/?text=I%20just%20took%20this%20blood%20sugar%20quiz%20and%20wish%20I%E2%80%99d%20done%20it%20sooner.%20Takes%202%20minutes.%20Worth%20doing%20even%20if%20you%20think%20you%E2%80%99re%20fine.%20https%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#25D366;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#1877F2;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=I%20just%20took%20this%20blood%20sugar%20quiz%20and%20wish%20I%E2%80%99d%20done%20it%20sooner.%20Takes%202%20minutes.%20Worth%20doing%20even%20if%20you%20think%20you%E2%80%99re%20fine.&url=https%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:#1A1A1A;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">X</a>
+        <a href="mailto:?subject=Quick%20blood%20sugar%20quiz%20%E2%80%94%202%20minutes&body=I%20just%20took%20this%20blood%20sugar%20quiz%20and%20wish%20I%E2%80%99d%20done%20it%20sooner.%20Takes%202%20minutes.%20Worth%20doing%20even%20if%20you%20think%20you%E2%80%99re%20fine.%0A%0Ahttps%3A%2F%2Fsugar-detox.involve.me%2Fblood-sugar-quiz" style="display:flex;align-items:center;gap:6px;padding:10px 16px;background:var(--gray);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--fb)">Email</a>
+      </div>
+    </div>
+  </div>
+  
   <p class="soft rv">60,000+ people reversed their insulin resistance by understanding what was causing it and removing it. This book is what made that possible.</p>
 
 </div>
