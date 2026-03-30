@@ -241,8 +241,9 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 
 .cta{text-align:center;padding:32px 0 10px}
 .cta-pre{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:22px;line-height:1.5}
-.btn{display:inline-block;background:var(--red);color:var(--white);font-family:var(--fb);font-size:17px;font-weight:700;padding:18px 44px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;letter-spacing:.3px;box-shadow:0 4px 16px rgba(184,49,47,.22);transition:all .2s}
-.btn:hover{background:#9B2826;transform:translateY(-2px);box-shadow:0 6px 24px rgba(184,49,47,.3)}
+@keyframes btnPulse{0%,100%{box-shadow:0 4px 16px rgba(184,49,47,.22)}50%{box-shadow:0 6px 28px rgba(184,49,47,.5)}}
+.btn{display:inline-block;background:var(--red);color:var(--white);font-family:var(--fb);font-size:17px;font-weight:700;padding:18px 44px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;letter-spacing:.3px;box-shadow:0 4px 16px rgba(184,49,47,.22);transition:all .2s;animation:btnPulse 2.5s ease-in-out infinite}
+.btn:hover{background:#9B2826;transform:translateY(-2px);box-shadow:0 6px 24px rgba(184,49,47,.3);animation:none}
 .cta-s{margin-top:14px;font-size:13px;color:var(--gray-lt)}
 .cta-s .anc{display:block;margin-top:5px;font-style:italic;color:var(--gray)}
 
@@ -326,7 +327,7 @@ body{font-family:var(--fb);color:var(--dark);background:var(--white);-webkit-fon
 
   <section class="rh">
     <div class="badge"><span class="dot"></span><span>Your Result</span></div>
-    <h1>Diabetic Patterns <em id="present">Present</em></h1>
+    <h1><em id="present">Diabetic</em> Patterns Present</h1>
     <p class="sub">Based on your symptoms, energy patterns, eating habits, and medical history.</p>
   </section>
 
