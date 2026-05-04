@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MightyMetabolic.com — Most Chronic Disease Starts With Blood Sugar</title>
+<meta name="description" content="Type 2 diabetes, weight gain, fatty liver, PCOS, heart disease — most modern chronic conditions share one root cause. Find out where your blood sugar stands.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="MightyMetabolic.com — Most Chronic Disease Starts With Blood Sugar">
+<meta property="og:description" content="Type 2 diabetes, weight gain, fatty liver, PCOS, heart disease — most modern chronic conditions share one root cause. Find out where your blood sugar stands.">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 26 L4 6 L10 6 L16 16 L22 6 L28 6 L28 26 L24 26 L24 12 L18 22 L14 22 L8 12 L8 26 Z' fill='%231e3a6f'/%3E%3Cpath d='M16 22 L16 30' stroke='%231e3a6f' stroke-width='2.5' fill='none'/%3E%3Cpath d='M13 27 L19 27' stroke='%231e3a6f' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f4f6fa;
+    --bg-cool: #e8edf5;
+    --paper: #ffffff;
+    --ink: #0a1628;
+    --ink-soft: #34465e;
+    --ink-muted: #6b7a8f;
+    --rule: #d4dce8;
+    --navy: #1e3a6f;
+    --navy-deep: #142a52;
+    --navy-bright: #2d5299;
+    --navy-light: #4a73b8;
+    --accent: #d97757;
+    --highlight: #ffd966;
+    --healthy-band: #c8e6d0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Logo ---------- */
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .logo-mark {
+    width: 32px; height: 32px;
+    flex-shrink: 0;
+  }
+  .logo-mark svg { width: 100%; height: 100%; display: block; }
+  .logo-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    line-height: 1;
+  }
+  .logo-text .dot { color: var(--navy); }
+  .logo-text em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--navy);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.2s ease;
+    border-radius: 2px;
+  }
+  .header-cta:hover { background: var(--navy-deep); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 72px 48px 96px;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 500;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--navy);
+  }
+  .hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5.2vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--navy);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 4px;
+    height: 8px;
+    background: var(--highlight);
+    z-index: -1;
+    opacity: 0.55;
+  }
+  .hero-deck {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+    max-width: 52ch;
+  }
+  .cta-meta {
+    display: block;
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+
+  /* ---------- Animated Blood Sugar Chart ---------- */
+  .chart-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 32px 32px 24px;
+    box-shadow: 0 30px 60px -20px rgba(20, 42, 82, 0.18);
+    position: relative;
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .chart-header .label-left { color: var(--ink-muted); }
+  .chart-header .label-right { color: var(--ink-muted); font-style: italic; text-transform: none; letter-spacing: 0.02em; font-family: 'Fraunces', serif; font-size: 13px; }
+
+  .chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .chart-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* Chart animations */
+  @keyframes drawLine {
+    from { stroke-dashoffset: 1200; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes pulseMarker {
+    0%, 100% { r: 6; opacity: 1; }
+    50% { r: 10; opacity: 0.7; }
+  }
+  @keyframes pulseRing {
+    0% { r: 8; opacity: 0.8; }
+    100% { r: 22; opacity: 0; }
+  }
+  @keyframes fadeInLabel {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chart-line {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: drawLine 3s ease-out 0.3s forwards;
+  }
+  .chart-marker {
+    animation: pulseMarker 2s ease-in-out infinite;
+    animation-delay: 3.5s;
+    animation-fill-mode: both;
+  }
+  .chart-pulse-ring {
+    animation: pulseRing 2s ease-out infinite;
+    animation-delay: 3.5s;
+  }
+  .chart-label {
+    opacity: 0;
+    animation: fadeInLabel 0.6s ease-out forwards;
+  }
+  .chart-label-1 { animation-delay: 1.2s; }
+  .chart-label-2 { animation-delay: 1.9s; }
+  .chart-label-3 { animation-delay: 2.6s; }
+  .chart-label-here { animation-delay: 3.4s; }
+
+  /* ---------- Primary CTA ---------- */
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    padding: 22px 36px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px -2px rgba(20, 42, 82, 0.3);
+  }
+  .cta-primary:hover {
+    background: var(--navy-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px rgba(20, 42, 82, 0.4);
+  }
+  .cta-primary .arrow { transition: transform 0.2s ease; }
+  .cta-primary:hover .arrow { transform: translateX(4px); }
+
+  /* ---------- Section Label ---------- */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--navy);
+  }
+
+  /* ---------- Origin Section ---------- */
+  .origin {
+    padding: 120px 48px;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .origin-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .origin-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--bg-cool) url('images/doctor-patient.jpg') center/cover no-repeat;
+    border-radius: 4px;
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 20px 40px -15px rgba(20, 42, 82, 0.2);
+  }
+  .origin h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 24px 0 32px;
+  }
+  .origin h2 em { font-style: italic; color: var(--navy); }
+  .origin-body p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .origin-body p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---------- Conditions Grid ---------- */
+  .conditions { margin-top: 56px; }
+  .conditions-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .condition {
+    background: var(--paper);
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: background 0.2s ease;
+  }
+  .condition:hover { background: var(--bg-cool); }
+  .condition-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    color: var(--navy);
+  }
+  .condition-icon svg { width: 100%; height: 100%; }
+  .condition-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 19px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  /* ---------- Quiz Section ---------- */
+  .quiz-section {
+    padding: 120px 48px;
+    background: var(--bg);
+  }
+  .quiz-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .quiz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .quiz-section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin: 24px 0 32px;
+  }
+  .quiz-section h2 em { font-style: italic; color: var(--navy); }
+  .quiz-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .quiz-points {
+    list-style: none;
+    margin: 32px 0 40px;
+  }
+  .quiz-points li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 14px;
+    align-items: baseline;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .quiz-points li::before {
+    content: '→';
+    color: var(--navy);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  /* Quiz visual + card */
+  .quiz-visual-wrap { position: relative; }
+  .quiz-visual {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--bg-cool) url('images/cgm-arm.jpg') center/cover no-repeat;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px -20px rgba(20, 42, 82, 0.25);
+  }
+  .quiz-card {
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    right: 40px;
+    background: var(--paper);
+    padding: 32px;
+    box-shadow: 0 20px 40px -15px rgba(20, 42, 82, 0.25);
+    border-top: 4px solid var(--navy);
+  }
+  .quiz-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .quiz-card-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 26px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .quiz-card-meta {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 24px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .meta-item .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .meta-item .value {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .quiz-card .cta-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 18px 24px;
+    font-size: 12px;
+  }
+
+  /* ---------- Reversal Plan Section ---------- */
+  .plan {
+    background: var(--ink);
+    color: white;
+    padding: 120px 48px;
+  }
+  .plan-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .plan .section-label { color: var(--accent); }
+  .plan .section-label::before { background: var(--accent); }
+  .plan h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin: 24px 0 32px;
+  }
+  .plan h2 em { font-style: italic; color: var(--accent); }
+  .plan-deck {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 40px;
+  }
+  .plan-components {
+    margin-bottom: 40px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .plan-component {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    align-items: baseline;
+  }
+  .plan-component-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+  }
+  .plan-component h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .plan-component p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 22px 36px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 2px;
+  }
+  .cta-secondary:hover {
+    background: #c66547;
+    transform: translateY(-2px);
+  }
+  .plan-image {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    background: rgba(255,255,255,0.04) url('images/reversal-plan.png') center/contain no-repeat;
+    border-radius: 4px;
+  }
+
+  /* ---------- About + Stats (combined) ---------- */
+  .about {
+    padding: 120px 48px;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+  }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 24px 0 32px;
+    letter-spacing: -0.02em;
+  }
+  .about h2 em { font-style: italic; color: var(--navy); }
+  .about-body {
+    max-width: 60ch;
+    margin-bottom: 56px;
+  }
+  .about-body p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: var(--navy);
+    color: white;
+    padding: 40px 32px;
+    border-radius: 4px;
+  }
+  .about-stat {
+    text-align: center;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 24px;
+  }
+  .about-stat:first-child { border-left: none; }
+  .about-stat .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 500;
+    line-height: 1;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .about-stat .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta {
+    padding: 120px 48px;
+    background: var(--bg-cool);
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  .final-cta h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(40px, 5.5vw, 68px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 24px auto 32px;
+    max-width: 16ch;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--navy); }
+  .final-cta p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+  .final-cta .section-label {
+    justify-content: center;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 48px;
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.6);
+    border-top: 4px solid var(--navy);
+  }
+  .footer-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .footer-inner .logo-text { color: white; font-size: 16px; }
+  .footer-inner .logo-text em { color: var(--accent); }
+  .footer-inner .logo-text .dot { color: var(--accent); }
+  .footer-disclaimer {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.6;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    header { padding: 16px 20px; }
+    .header-cta { padding: 10px 14px; font-size: 10px; letter-spacing: 0.1em; }
+    .hero, .origin-inner, .quiz-grid, .plan-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .hero { padding: 48px 20px 64px; }
+    .origin, .quiz-section, .plan, .about, .final-cta {
+      padding: 64px 20px;
+    }
+    .conditions-grid { grid-template-columns: 1fr; }
+    .quiz-card {
+      position: static;
+      margin-top: 20px;
+      padding: 24px;
+    }
+    .quiz-card-meta { flex-direction: column; gap: 12px; }
+    .origin-image { position: static; }
+    .about-stats {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 32px 24px;
+    }
+    .about-stat {
+      border-left: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 24px 0 0;
+    }
+    .about-stat:first-child { border-top: none; padding-top: 0; }
+    .cta-primary, .cta-secondary {
+      padding: 18px 24px;
+      font-size: 12px;
+      width: 100%;
+      justify-content: center;
+    }
+    .chart-card { padding: 20px 20px 16px; }
+    footer { padding: 32px 20px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ---------- Entrance animations ---------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.7s ease-out; }
+  .hero h1 { animation: fadeUp 0.8s ease-out 0.1s both; }
+  .hero-deck { animation: fadeUp 0.8s ease-out 0.25s both; }
+  .hero .cta-primary { animation: fadeUp 0.8s ease-out 0.4s both; }
+  .hero .cta-meta { animation: fadeUp 0.8s ease-out 0.5s both; }
+  .chart-card { animation: fadeUp 1s ease-out 0.2s both; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <span class="logo-mark">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 26 L4 6 L10 6 L16 16 L22 6 L28 6 L28 26 L24 26 L24 12 L18 22 L14 22 L8 12 L8 26 Z" fill="#1e3a6f"/>
+        <path d="M16 22 L16 30" stroke="#1e3a6f" stroke-width="2.5" fill="none"/>
+        <path d="M13 27 L19 27" stroke="#1e3a6f" stroke-width="2" fill="none"/>
+      </svg>
+    </span>
+    <span class="logo-text">mighty<em>metabolic</em><span class="dot">.com</span></span>
+  </a>
+  <a href="https://sugar-detox.involve.me/blood-sugar-quiz" class="header-cta">Find Out Your Risk →</a>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">A Premise Worth Examining</div>
+    <h1>Most chronic disease begins in <em>the same place.</em></h1>
+    <p class="hero-deck">
+      Type 2 diabetes. Stubborn weight. Fatty liver. PCOS. Heart disease. Brain fog. They look like separate problems. They aren't. They share an origin — and that origin is your blood sugar.
+    </p>
+    <a href="https://sugar-detox.involve.me/blood-sugar-quiz" class="cta-primary">
+      Find Out Your Blood Sugar Risk
+      <span class="arrow">→</span>
+    </a>
+    <span class="cta-meta">2-minute assessment · personalized result · free</span>
+  </div>
+
+  <!-- Animated Blood Sugar Chart -->
+  <div class="chart-card">
+    <div class="chart-header">
+      <span class="label-left">Your Daily Blood Sugar</span>
+      <span class="label-right">Does this look familiar?</span>
+    </div>
+
+    <svg class="chart-svg" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" aria-label="Animated blood sugar chart showing spikes, crash, and current position">
+      <!-- Grid background -->
+      <defs>
+        <linearGradient id="chartFade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1e3a6f" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#1e3a6f" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Healthy range band -->
+      <rect x="0" y="170" width="600" height="50" fill="#c8e6d0" opacity="0.45"/>
+      <text x="592" y="178" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#34465e" letter-spacing="0.5">HEALTHY RANGE</text>
+
+      <!-- Subtle baseline -->
+      <line x1="0" y1="195" x2="600" y2="195" stroke="#1e3a6f" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.3"/>
+
+      <!-- Time axis labels -->
+      <text x="50" y="305" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a8f" letter-spacing="0.5">MORNING</text>
+      <text x="195" y="305" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a8f" letter-spacing="0.5">LUNCH</text>
+      <text x="345" y="305" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a8f" letter-spacing="0.5">AFTERNOON</text>
+      <text x="510" y="305" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a8f" letter-spacing="0.5">EVENING</text>
+
+      <!-- The chart line — drawn animation -->
+      <path
+        class="chart-line"
+        d="M 20 200
+           C 50 195, 70 190, 90 170
+           C 110 145, 120 80, 140 65
+           C 160 55, 175 90, 195 140
+           C 215 200, 230 270, 260 270
+           C 285 270, 300 240, 320 200
+           C 340 165, 355 100, 380 70
+           C 405 55, 420 100, 440 160
+           C 460 215, 475 240, 500 235
+           C 520 230, 540 215, 560 205"
+        fill="none"
+        stroke="#1e3a6f"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+
+      <!-- SPIKE 1 label -->
+      <g class="chart-label chart-label-1">
+        <rect x="110" y="30" width="60" height="22" rx="11" fill="#1e3a6f"/>
+        <text x="140" y="45" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" fill="white" letter-spacing="1">SPIKE</text>
+        <circle cx="140" cy="65" r="5" fill="#1e3a6f"/>
+      </g>
+
+      <!-- CRASH label -->
+      <g class="chart-label chart-label-2">
+        <rect x="230" y="282" width="60" height="22" rx="11" fill="#0a1628"/>
+        <text x="260" y="297" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" fill="white" letter-spacing="1">CRASH</text>
+        <circle cx="260" cy="270" r="5" fill="#0a1628"/>
+      </g>
+
+      <!-- SPIKE 2 label -->
+      <g class="chart-label chart-label-3">
+        <rect x="350" y="35" width="60" height="22" rx="11" fill="#1e3a6f"/>
+        <text x="380" y="50" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" fill="white" letter-spacing="1">SPIKE</text>
+        <circle cx="380" cy="70" r="5" fill="#1e3a6f"/>
+      </g>
+
+      <!-- YOU ARE HERE marker -->
+      <g class="chart-label chart-label-here">
+        <!-- Pulsing ring -->
+        <circle class="chart-pulse-ring" cx="500" cy="235" r="8" fill="none" stroke="#1e3a6f" stroke-width="2"/>
+        <!-- Marker dot -->
+        <circle class="chart-marker" cx="500" cy="235" r="6" fill="#1e3a6f"/>
+        <!-- Label box -->
+        <line x1="500" y1="225" x2="500" y2="200" stroke="#0a1628" stroke-width="1" stroke-dasharray="2 2"/>
+        <rect x="455" y="178" width="90" height="22" rx="11" fill="#0a1628"/>
+        <text x="500" y="193" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" fill="white" letter-spacing="1">YOU ARE HERE</text>
+      </g>
+    </svg>
+
+    <div class="chart-footer">
+      <span>● SPIKE</span>
+      <span>● CRASH</span>
+      <span>--- STABLE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ORIGIN ============== -->
+<section class="origin">
+  <div class="origin-inner">
+    <div class="origin-image" role="img" aria-label="Doctor reviewing blood glucose meter with patient"></div>
+
+    <div>
+      <div class="section-label">The Premise</div>
+      <h2>Treat the symptom, it comes back. Treat the <em>cause</em>, the cascade stops.</h2>
+      <div class="origin-body">
+        <p>
+          Modern medicine is good at managing what's already broken. It's less interested in what broke first. For a large slice of the population — especially anyone over 40 — what broke first is the body's relationship with sugar and insulin.
+        </p>
+        <p>
+          When blood sugar runs high for years, it doesn't politely stay in one place. <strong>It shows up everywhere.</strong> The conditions below aren't a coincidence. They're downstream effects of the same upstream cause.
+        </p>
+
+        <div class="conditions">
+          <div class="conditions-label">Downstream effects of the same root cause</div>
+          <div class="conditions-grid">
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="22" cy="22" r="18" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M16 22h12M22 16v12" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M14 28c2-3 4-3 6-1s4 2 6-1 4-3 6 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                </svg>
+              </span>
+              <span class="condition-text">Type 2 Diabetes &amp; Pre-Diabetes</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M22 8v4M22 32v4M8 22h4M32 22h4" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M18 22h8M22 18v8" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <span class="condition-text">Weight Gain &amp; Stubborn Fat</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 6l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                </svg>
+              </span>
+              <span class="condition-text">Energy Crashes &amp; Fatigue</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 36c-8-6-14-12-14-20a8 8 0 0114-5 8 8 0 0114 5c0 8-6 14-14 20z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <path d="M14 22h4l2-4 4 8 2-4h4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                </svg>
+              </span>
+              <span class="condition-text">Heart Disease &amp; Hypertension</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 12c-4 0-6 4-6 8s2 8 6 12 8 4 14 0 8-8 8-14-4-8-8-8c-3 0-5 2-7 4-2-2-4-2-7-2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <path d="M14 22c2 0 4-1 6-3" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <span class="condition-text">Fatty Liver Disease</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="22" cy="22" rx="10" ry="12" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="14" cy="20" r="2" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="30" cy="20" r="2" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="18" cy="30" r="2" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="26" cy="30" r="2" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <span class="condition-text">PCOS &amp; Hormonal Imbalance</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 16c0-4 4-8 8-8s8 4 8 8c0 2-1 4-2 5 1 1 2 3 2 5 0 4-4 8-8 8s-8-4-8-8c0-2 1-4 2-5-1-1-2-3-2-5z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <path d="M22 8v28" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <span class="condition-text">Brain Fog &amp; Mood Issues</span>
+            </div>
+
+            <div class="condition">
+              <span class="condition-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 22c2-4 6-4 8 0s6 4 8 0 6-4 8 0 6 4 4 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <path d="M8 32c2-4 6-4 8 0s6 4 8 0 6-4 8 0 6 4 4 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <path d="M8 12c2-4 6-4 8 0s6 4 8 0 6-4 8 0 6 4 4 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                </svg>
+              </span>
+              <span class="condition-text">Chronic Inflammation</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== QUIZ ============== -->
+<section class="quiz-section">
+  <div class="quiz-inner">
+    <div class="quiz-grid">
+      <div>
+        <div class="section-label">Where to start</div>
+        <h2>You can't fix what you can't <em>see.</em></h2>
+        <p>
+          Most people have no idea where their blood sugar actually sits. They feel "off," but the once-a-year bloodwork their doctor runs doesn't tell the whole story. The assessment below is a starting point — not a diagnosis, not a sales pitch in disguise. A real read on where you are right now.
+        </p>
+        <ul class="quiz-points">
+          <li>A clear assessment of your current blood sugar risk</li>
+          <li>The daily habits quietly working against you</li>
+          <li>What to actually do next, based on your result</li>
+        </ul>
+        <a href="https://sugar-detox.involve.me/blood-sugar-quiz" class="cta-primary">
+          Find Out Your Blood Sugar Risk
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="quiz-visual-wrap">
+        <div class="quiz-visual" role="img" aria-label="Person with continuous glucose monitor checking blood sugar app"></div>
+        <div class="quiz-card">
+          <div class="quiz-card-label">Begin Here</div>
+          <h3 class="quiz-card-title">Blood Sugar Risk Assessment</h3>
+          <div class="quiz-card-meta">
+            <div class="meta-item">
+              <span class="label">Time</span>
+              <span class="value">~2 min</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Cost</span>
+              <span class="value">Free</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Result</span>
+              <span class="value">Personalized</span>
+            </div>
+          </div>
+          <a href="https://sugar-detox.involve.me/blood-sugar-quiz" class="cta-primary">
+            Find Out Your Blood Sugar Risk
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PLAN ============== -->
+<section class="plan">
+  <div class="plan-inner">
+    <div>
+      <div class="section-label">If you already know</div>
+      <h2>For people who are done managing and want to <em>reverse it.</em></h2>
+      <p class="plan-deck">
+        If your doctor has already used the words "pre-diabetic" or "Type 2," you don't need an assessment to tell you something is wrong. You need a plan. The Reversal Plan is what Mike has used to help 60,000+ people stop managing their condition and start fixing the cause.
+      </p>
+
+      <div class="plan-components">
+        <div class="plan-component">
+          <span class="plan-component-num">01 /</span>
+          <div>
+            <h3>How to Reverse Type 2 Diabetes</h3>
+            <p>The full protocol — refined over 37 years of being sugar-free and working with thousands who got their A1C back into normal range.</p>
+          </div>
+        </div>
+        <div class="plan-component">
+          <span class="plan-component-num">02 /</span>
+          <div>
+            <h3>The 30-Day Reversal Meal Plan</h3>
+            <p>What to actually eat, every day, with no guesswork. Built specifically for people who need their blood sugar down — not generic "healthy eating" advice.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://reversediabetes.sugardetox.com/from-quiz/" class="cta-secondary">
+        See The Reversal Plan
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="plan-image" role="img" aria-label="How to Reverse Type 2 Diabetes book and 30-Day Reversal Meal Plan"></div>
+  </div>
+</section>
+
+<!-- ============== ABOUT MIKE + STATS (combined) ============== -->
+<section class="about">
+  <div class="about-inner">
+    <div class="section-label">Who is behind this</div>
+    <h2>Mike Collins. Sugar-free for <em>37 years.</em></h2>
+    <div class="about-body">
+      <p>
+        Mike isn't a doctor. He's a guy who got told the word "diabetes" by his physician, decided he didn't want to spend the rest of his life on medication, and quit sugar instead. His A1C dropped to 5.8% within three months. It sits at 4.9% today. He's been off any sugar-related medication the entire time.
+      </p>
+      <p>
+        That experience turned into a body of work — books, courses, and a community of more than 60,000 people who've used his approach to do what their doctors said wasn't possible. No supplements. No gimmicks. Just a clear understanding of what sugar does to the body and what happens when you stop eating it.
+      </p>
+    </div>
+
+    <div class="about-stats">
+      <div class="about-stat">
+        <span class="num">37 yrs</span>
+        <span class="label">Sugar-Free</span>
+      </div>
+      <div class="about-stat">
+        <span class="num">4.9%</span>
+        <span class="label">Current A1C · No Medication</span>
+      </div>
+      <div class="about-stat">
+        <span class="num">60K+</span>
+        <span class="label">People Helped</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final-cta">
+  <div class="section-label" style="margin-bottom: 24px;">Start where it actually matters</div>
+  <h2>Find out where your <em>blood sugar</em> stands.</h2>
+  <p>Two minutes. A real answer about whether your blood sugar is the thing quietly running the show.</p>
+  <a href="https://sugar-detox.involve.me/blood-sugar-quiz" class="cta-primary">
+    Find Out Your Blood Sugar Risk
+    <span class="arrow">→</span>
+  </a>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="footer-inner">
+    <span class="logo-text">mighty<em>metabolic</em><span class="dot">.com</span></span>
+    <span>© 2026 MightyMetabolic.com · All rights reserved</span>
+  </div>
+  <div class="footer-disclaimer">
+    MightyMetabolic.com is an educational resource. The content on this site, in the assessment, and in any associated products is for informational purposes only and is not intended to replace the advice of a qualified medical professional. Always consult your doctor before making changes to your diet, medication, or treatment plan.
+  </div>
+</footer>
+
+</body>
+</html>
